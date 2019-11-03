@@ -2,7 +2,7 @@ const { WebpackPluginServe: Serve } = require("webpack-plugin-serve");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { join } = require("path");
-const outputPath = join(process.cwd(), "/dist");
+const outputPath = join(process.cwd(), "/docs");
 
 module.exports = {
   mode: "production",
