@@ -1,0 +1,34 @@
+{
+  "name": "vandyhack-artistic",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZTKlein/Vandyhack-VI-artistic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZTKlein/Vandyhack-VI-artistic/issues"
+  },
+  "homepage": "https://github.com/ZTKlein/Vandyhack-VI-artistic#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-nano": "^0.8.1",
+    "webpack-plugin-serve": "^0.12.1"
+  },
+  "dependencies": {
+    "three": "^0.110.0"
+  }
+}

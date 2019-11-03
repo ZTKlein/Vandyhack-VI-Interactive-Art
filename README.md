@@ -1,1 +1,1 @@
-# Vandyhack-VI-artistic
+# Vandyhack-VI-Interactive-Art
