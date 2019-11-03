@@ -1,1 +1,0 @@
-# Vandyhack-VI-Interactive-Art
