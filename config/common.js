@@ -31,7 +31,11 @@ module.exports = {
       },
       {
         test: /\.(glsl|frag|vert)$/,
-        use: ["glslify-import-loader", "raw-loader", "glslify-loader"]
+        use: [
+          require.resolve("glslify-import-loader"),
+          require.resolve("raw-loader"),
+          require.resolve("glslify-loader")
+        ]
       },
       {
         test: /three\/examples\/js/,
