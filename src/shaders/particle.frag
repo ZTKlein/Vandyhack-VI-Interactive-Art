@@ -6,7 +6,7 @@ uniform sampler2D uTexture;
 
 varying vec2 vPUv;
 varying vec2 vUv;
-float random(){ return fract(sin(dot(vPUv, vec2(12.9898,78.233)))*43758.5453123);}
+float random(){ return fract(sin(dot(vPUv, vec2(12.9898,78.233)))*43.5453123);}
 
 void main() {
 	vec4 color = vec4(0.0);
@@ -14,13 +14,10 @@ void main() {
 	vec2 puv = vPUv;
 
 	// pixel color
-	vec4 colA = texture2D(uTexture, puv);
+	// vec4 colA = texture2D(uTexture, puv);
 
 	// greyscale
-	float andom = fract(sin(dot(puv,
-                         vec2(12.9898,78.233)))*
-        43758.5453123);
-	float ra = fract(sin(random())*1.0);
+	float ra = random();
 	vec4 colB = vec4(ra * .2, 0, ra * 1.8, 1.0);
 
 	// circle
