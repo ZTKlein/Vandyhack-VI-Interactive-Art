@@ -14,7 +14,7 @@
   "scripts": {
     "build": "webpack -p --config config/prod.js",
     "start": "webpack-dev-server --config config/dev.js",
-    "deploy": "gh-pages -d dist"
+    "deploy": "echo \"imakeartwith.tech\" > build/CNAME & gh-pages -d dist"
   },
   "dependencies": {
     "@brunoimbrizi/controlkit": "^0.1.99",
