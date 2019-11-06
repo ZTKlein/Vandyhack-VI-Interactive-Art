@@ -12,12 +12,12 @@ var run = function() {
   let particleCount = 600;
   let particleMax = 600;
 
-  let phueMin = 180;
-  let phueMax = 240;
+  let phueMin = 300;
+  let phueMax = 360;
 
   let centerx = sketch.width / 2;
 
-  let centery = (sketch.height * 17) / 40;
+  let centery = sketch.height / 2;
 
   sketch.strokeStyle = "hsla(300, 50%, 50%, .4)";
 
@@ -36,6 +36,11 @@ var run = function() {
 
   Particle.prototype = {
     update: function() {
+      this.luminosity = sin((sketch.millis / 5000) * PI) + 1 * 15 + 20;
+      this.hue += sketch.hueShift;
+      if (this.hue > 360) this.hue = 0 + (this.hue % 360);
+      this.maxRadius = sketch.width / 8;
+      this.threshold = sketch.width / 3;
       let dist, distx, disty;
       distx = this.x - centerx;
       disty = this.y - centery;
@@ -68,7 +73,8 @@ var run = function() {
       sketch.beginPath();
       sketch.arc(this.x, this.y, this.radius, 0, TWO_PI);
       sketch.closePath();
-      sketch.fillStyle = "hsla(" + this.hue + ", 60%, 40%, .35)";
+      sketch.fillStyle =
+        "hsla(" + this.hue + ", 60%," + this.luminosity + "%,.35)";
       sketch.fill();
       return sketch.stroke();
     }
@@ -80,23 +86,12 @@ var run = function() {
     particles.push(new Particle());
   }
 
-  let addParticles = () => {
-    particleCount += Math.round(particleCount / 10);
-    z = particleCount - particles.length;
-    while (z--) particles.push(new Particle());
-    if (phueMax < 360) {
-      phueMin += 5;
-      phueMax += 5;
-    }
-    if (particleCount < particleMax) setTimeout(addParticles, 3000);
-  };
-  setTimeout(addParticles, 2000);
-
   sketch.clear = function() {
     return sketch.clearRect(0, 0, sketch.width, sketch.height);
   };
 
   sketch.update = function() {
+    sketch.hueShift = sketch.dt / 100;
     var i, results;
     i = particles.length;
     results = [];
@@ -109,8 +104,8 @@ var run = function() {
   sketch.draw = function() {
     centerx = sketch.width / 2;
     centery = (sketch.height * 17) / 40;
+    sketch.globalCompositeOperation = "lighter";
     sketch.strokeStyle = "hsla(300, 50%, 50%, .4)";
-    sketch.globalCompositeOperator = "lighter";
     var i, results;
     i = particles.length;
     results = [];

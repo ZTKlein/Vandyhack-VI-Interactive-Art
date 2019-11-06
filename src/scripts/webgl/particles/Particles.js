@@ -58,7 +58,7 @@ export default class Particles {
         if (originalColors[i * 4 + 0] > threshold) numVisible++;
       }
 
-      // console.log('numVisible', numVisible, this.numPoints);
+      //console.log("numVisible", numVisible, this.numPoints);
     }
 
     const uniforms = {
