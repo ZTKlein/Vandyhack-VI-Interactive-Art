@@ -185,7 +185,7 @@ export default class Particles {
 
   update(delta) {
     if (!this.object3D) return;
-    if (this.touch) this.touch.update();
+    if (this.touch) this.touch.update(delta);
 
     this.object3D.material.uniforms.uTime.value += delta;
   }

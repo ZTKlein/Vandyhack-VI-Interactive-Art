@@ -17,7 +17,7 @@ var run = function() {
 
   let centerx = sketch.width / 2;
 
-  let centery = sketch.height * 17 / 40;
+  let centery = (sketch.height * 17) / 40;
 
   sketch.strokeStyle = "hsla(300, 50%, 50%, .4)";
 
@@ -49,10 +49,10 @@ var run = function() {
       } else {
         this.radius = this.baseRadius;
       }
-      this.vx += (random(100) - 50) / 1000;
-      this.vy -= random(1, 20) / 10000;
-      this.x += this.vx;
-      this.y += this.vy;
+      this.vx += (random(100) - 50) / sketch.width;
+      this.vy -= random(1, 20) / sketch.height / 10;
+      this.x += ((this.vx * sketch.dt) / 1000) * 60;
+      this.y += ((this.vy * sketch.dt) / 1000) * 60;
       if (
         this.x < -this.maxRadius ||
         this.x > sketch.width + this.maxRadius ||
@@ -108,7 +108,7 @@ var run = function() {
 
   sketch.draw = function() {
     centerx = sketch.width / 2;
-    centery = sketch.height * 17 / 40;
+    centery = (sketch.height * 17) / 40;
     sketch.strokeStyle = "hsla(300, 50%, 50%, .4)";
     sketch.globalCompositeOperator = "lighter";
     var i, results;
