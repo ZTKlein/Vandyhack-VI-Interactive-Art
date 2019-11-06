@@ -15,9 +15,9 @@ var run = function() {
   let phueMin = 180;
   let phueMax = 240;
 
-  sketch.mouse.x = sketch.width / 2;
+  let centerx = sketch.width / 2;
 
-  sketch.mouse.y = sketch.height / 2 - 20;
+  let centery = sketch.height * 17 / 40;
 
   sketch.strokeStyle = "hsla(300, 50%, 50%, .4)";
 
@@ -37,8 +37,8 @@ var run = function() {
   Particle.prototype = {
     update: function() {
       let dist, distx, disty;
-      distx = this.x - sketch.mouse.x;
-      disty = this.y - sketch.mouse.y;
+      distx = this.x - centerx;
+      disty = this.y - centery;
       dist = sqrt(distx * distx + disty * disty);
       if (dist < this.threshold) {
         this.radius = lerp(
@@ -65,7 +65,6 @@ var run = function() {
       }
     },
     render: function() {
-      sketch.strokeStyle = "hsla(300, 50%, 50%, .4)";
       sketch.beginPath();
       sketch.arc(this.x, this.y, this.radius, 0, TWO_PI);
       sketch.closePath();
@@ -108,6 +107,10 @@ var run = function() {
   };
 
   sketch.draw = function() {
+    centerx = sketch.width / 2;
+    centery = sketch.height * 17 / 40;
+    sketch.strokeStyle = "hsla(300, 50%, 50%, .4)";
+    sketch.globalCompositeOperator = "lighter";
     var i, results;
     i = particles.length;
     results = [];
