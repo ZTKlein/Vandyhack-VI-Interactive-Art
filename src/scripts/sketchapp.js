@@ -9,7 +9,7 @@ var run = function() {
 
   let particles = [];
 
-  let particleCount = 10;
+  let particleCount = 600;
   let particleMax = 600;
 
   let phueMin = 180;
@@ -17,7 +17,7 @@ var run = function() {
 
   sketch.mouse.x = sketch.width / 2;
 
-  sketch.mouse.y = sketch.height / 2;
+  sketch.mouse.y = sketch.height / 2 - 20;
 
   sketch.strokeStyle = "hsla(300, 50%, 50%, .4)";
 
@@ -65,6 +65,7 @@ var run = function() {
       }
     },
     render: function() {
+      sketch.strokeStyle = "hsla(300, 50%, 50%, .4)";
       sketch.beginPath();
       sketch.arc(this.x, this.y, this.radius, 0, TWO_PI);
       sketch.closePath();
