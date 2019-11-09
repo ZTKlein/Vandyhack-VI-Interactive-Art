@@ -7,6 +7,8 @@ var run = function() {
     container: document.getElementById("canvasDiv")
   });
 
+  sketch.canvas.setAttribute("style", "filter: blur(5px)");
+
   let particles = [];
 
   let particleCount = 600;
